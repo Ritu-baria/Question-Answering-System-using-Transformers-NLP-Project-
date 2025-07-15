@@ -1,0 +1,19 @@
+# q&a/q&a
+from transformers import pipeline
+
+# Load pre-trained QA pipeline
+qa_pipeline = pipeline("question-answering")
+
+# Provide context
+context = """
+The Indian Space Research Organisation (ISRO) is the space agency of the Government of India.
+It is headquartered in Bengaluru and was founded in 1969 by Vikram Sarabhai.
+"""
+
+# Ask question
+result = qa_pipeline({
+    'context': context,
+    'question': "Who founded ISRO?"
+})
+
+print(result['answer'])  # Output: Vikram Sarabhai
